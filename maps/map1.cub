@@ -1,9 +1,9 @@
-NO ./textures/wood.xpm
 
-F 10,10,0
+F 222,10,0
 C 30,0,255
 
-SO ./textures/wood.xpm
+NO ./textures/wall1.xpm
+SO ./textures/wall2.xpm
 WE ./textures/wall3.xpm
 EA ./textures/wood.xpm
 

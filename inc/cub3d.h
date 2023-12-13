@@ -6,7 +6,7 @@
 /*   By: seozkan <seozkan@42kocaeli.com.tr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 16:56:26 by seozkan           #+#    #+#             */
-/*   Updated: 2023/12/07 21:51:01 by seozkan          ###   ########.fr       */
+/*   Updated: 2023/12/13 22:31:31 by seozkan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,14 +131,15 @@ void			plot_line(t_point p1, t_point p2, t_data img, int color);
 double			ft_abs(double num);
 
 // display/transform.c
-void			ft_move(t_cub *prog, t_render *params);
+void			ft_move_straight(t_cub *prog, t_render *params);
+void			ft_move_side(t_cub *prog, t_render *params);
 void			ft_rotate(t_cub *prog, t_render *params);
 int				ft_texnum(t_render *params);
 
 // display/plot.c
 void			my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int				get_pixel_color(t_data *data, int x, int y);
-void			vertical_line(double x, double yi, double yo, t_cub params);
+void			draw_sky_or_floor(double x, double yi, double yo, t_cub params);
 
 // display/render_utils.c
 double			ft_abs(double num);

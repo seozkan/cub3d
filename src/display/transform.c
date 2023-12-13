@@ -6,7 +6,7 @@
 /*   By: seozkan <seozkan@42kocaeli.com.tr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 16:57:57 by seozkan           #+#    #+#             */
-/*   Updated: 2023/12/07 16:57:58 by seozkan          ###   ########.fr       */
+/*   Updated: 2023/12/13 22:42:45 by seozkan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,16 +43,14 @@ void	ft_rotate(t_cub *prog, t_render *params)
 	{
 		params->dir.x = (params->dir.x * cos(-s)) - (params->dir.y * sin(-s));
 		params->dir.y = (old_dir_x * sin(-s)) + (params->dir.y * cos(-s));
-		params->plane.x
-			= (params->plane.x * cos(-s)) - (params->plane.y * sin(-s));
+		params->plane.x = (params->plane.x * cos(-s)) - (params->plane.y * sin(-s));
 		params->plane.y = (old_plane_x * sin(-s)) + (params->plane.y * cos(-s));
 	}
 	else if (prog->keys.right == 1)
 	{
 		params->dir.x = (params->dir.x * cos(s)) - (params->dir.y * sin(s));
 		params->dir.y = (old_dir_x * sin(s)) + (params->dir.y * cos(s));
-		params->plane.x
-			= (params->plane.x * cos(s)) - (params->plane.y * sin(s));
+		params->plane.x = (params->plane.x * cos(s)) - (params->plane.y * sin(s));
 		params->plane.y = (old_plane_x * sin(s)) + (params->plane.y * cos(s));
 	}	
 }
@@ -81,7 +79,7 @@ void	ft_move_side(t_cub *prog, t_render *params)
 	}	
 }
 
-void	ft_move(t_cub *prog, t_render *params)
+void	ft_move_straight(t_cub *prog, t_render *params)
 {
 	t_point	pos;
 	double	s;
@@ -102,6 +100,5 @@ void	ft_move(t_cub *prog, t_render *params)
 			prog->pos.x -= params->dir.x * s;
 		if (prog->map[(int)(pos.y - params->dir.y * s)][(int)(pos.x)] != '1')
 			prog->pos.y -= params->dir.y * s;
-	}	
-	ft_move_side(prog, params);
+	}
 }
