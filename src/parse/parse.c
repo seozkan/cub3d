@@ -21,12 +21,12 @@ int	ft_check_valid_map_line(t_cub *cub, char *line)
 	{
 		if (!ft_strchr("10 NSEW", line[i]))
 		{
-			ft_printf("Error: %c is not a valid char\n", line[i]);
+			ft_printf("Error\n%c is not a valid char\n", line[i]);
 			return (0);
 		}
 		else if (ft_strchr("NSEW", line[i]) && cub->starting_way != 0)
 		{
-			ft_printf("Error: Only one starting point valid.\n");
+			ft_printf("Error\nOnly one starting point valid.\n");
 			return (0);
 		}
 		else if (ft_strchr("NSEW", line[i]) && cub->starting_way == 0)
@@ -133,7 +133,7 @@ int	ft_parse_file(char *filename, t_cub *cub)
 	close(fd);
 	free(line);
 	if (!cub->starting_way)
-		return (err("No starting way\n"));
+		return (err("Error\nNo starting way"));
 	ft_resize_map(cub);
 	ft_check_closed(cub);
 	return (1);

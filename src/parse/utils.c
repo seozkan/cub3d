@@ -6,7 +6,7 @@
 /*   By: seozkan <seozkan@42kocaeli.com.tr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 16:58:15 by seozkan           #+#    #+#             */
-/*   Updated: 2023/12/27 13:46:22 by seozkan          ###   ########.fr       */
+/*   Updated: 2023/12/27 14:34:59 by seozkan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ int	ft_check_file_extension(char *name)
 	if (i <= 1)
 	{
 		ft_free_split(split);
-		ft_printf("Error: Wrong file format\n");
+		ft_printf("Error\nWrong file format\n");
 		return (0);
 	}
 	if (ft_strncmp(split[i - 1], "cub", ft_max(3, ft_strlen(split[i - 1]))))
 	{
 		ft_free_split(split);
-		ft_printf("Error: File format must be .cub\n");
+		ft_printf("Error\nFile format must be .cub\n");
 		return (0);
 	}
 	ft_free_split(split);

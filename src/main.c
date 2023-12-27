@@ -6,7 +6,7 @@
 /*   By: seozkan <seozkan@42kocaeli.com.tr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 16:58:22 by seozkan           #+#    #+#             */
-/*   Updated: 2023/12/27 13:48:44 by seozkan          ###   ########.fr       */
+/*   Updated: 2023/12/27 14:33:46 by seozkan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,9 +93,9 @@ int	main(int argc, char **argv)
 	t_cub	prog;
 
 	if (argc != 2)
-		err("Map path is not specified");
+		err("Error\nMap path is not specified");
 	if (!ft_init_prog(&prog))
-		err("Init error");
+		err("Error\nInit error");
 	prog.mlx = mlx_init();
 	if (!ft_check_file_extension(argv[1]) || !ft_parse_file(argv[1], &prog))
 	{
