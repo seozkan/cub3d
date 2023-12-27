@@ -6,7 +6,7 @@
 /*   By: seozkan <seozkan@42kocaeli.com.tr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 16:58:15 by seozkan           #+#    #+#             */
-/*   Updated: 2023/12/08 14:41:25 by seozkan          ###   ########.fr       */
+/*   Updated: 2023/12/27 13:46:22 by seozkan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,10 +80,6 @@ int	check_direction_path(t_cub *cub, char **split, int *num)
 	return (1);
 }
 
-/*
- * Check if the colors for the floor and cealing are valid
- * and save them on the cub structure.
- */
 int	check_color_code(t_cub *cub, char **split, int *num)
 {
 	char	**colors;

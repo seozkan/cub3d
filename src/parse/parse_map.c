@@ -6,7 +6,7 @@
 /*   By: seozkan <seozkan@42kocaeli.com.tr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 16:58:05 by seozkan           #+#    #+#             */
-/*   Updated: 2023/12/08 16:10:58 by seozkan          ###   ########.fr       */
+/*   Updated: 2023/12/27 13:45:41 by seozkan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ int	ft_check_x_axis(t_cub *cub, size_t y, size_t x)
 	return (1);
 }
 
-// bu fonksiyon haritanın kapalı bir yapıya sahip olup olmadığını kontrol eder
 int	ft_check_closed(t_cub *cub)
 {
 	size_t	i;

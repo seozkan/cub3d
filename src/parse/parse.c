@@ -19,17 +19,11 @@ int	ft_check_valid_map_line(t_cub *cub, char *line)
 	i = 0;
 	while (line[i])
 	{
-		// map'in satırında 10 boşluk NSEW karakterleri dışında bir karakter varsa
-		// hata mesajı yazdırılır
 		if (!ft_strchr("10 NSEW", line[i]))
 		{
 			ft_printf("Error: %c is not a valid char\n", line[i]);
 			return (0);
 		}
-		// map'in satırında NSEW karakterlerinden biri satırdaysa ve start pozisyonu
-		// 0 a eşit değilse hata mesajı yazdırır
-		// start way hemen aşağıdaki else if de değer atanmışsa burada hata verecektir
-		// yani haritada iki başlangıç pozisyonu olması durumunda
 		else if (ft_strchr("NSEW", line[i]) && cub->starting_way != 0)
 		{
 			ft_printf("Error: Only one starting point valid.\n");
@@ -55,23 +49,16 @@ int	ft_parse_map(t_cub *cub, char *line)
 	i = -1;
 	if (!ft_check_valid_map_line(cub, line))
 		return (0);
-	// map satır uzunluğu bulunuyor
 	w = ft_strlen(line);
-	// map satır sayısı 1 arttırılıyor
 	cub->map_h++;
-	// map satır uzunluğundan daha uzun bir satır bulunursa yeni satır uzunluğu ayarlanıyor
 	if (w > cub->map_w)
 		cub->map_w = w;
 	new_map = ft_calloc(cub->map_h + 1, sizeof(char *));
-	// cub ün içindeki map verisinden önceki satır değerleri okunuyor new_map'e yazılıyor
 	while (cub->map[++i])
 		new_map[i] = cub->map[i];
-	// son satır new_map'a ekleniyor
 	new_map[i] = line;
 	new_map[i + 1] = NULL;
-	// cub içindeki map temizleniyor
 	free(cub->map);
-	// yeni map cub map a atanıyor
 	cub->map = new_map;
 	return (1);
 }
@@ -103,17 +90,14 @@ int	ft_parse_line(char *line, t_cub *cub, int *num)
 {
 	int	ret;
 
-	// bu koşul boş satırların kontrol edilip bellekten silinmesi için
 	if ((int)ft_strlen(line) <= 1)
 	{
 		ret = *num != -1;
 		if (ret != 0)
 			free(line);
 	}
-	// bu satır yönlendirme ve renk kodlarının okunması için
 	else if (*num < 6 && *num != -1)
 		ret = is_valid_param(cub, line, num);
-	// bu satır haritanın 1 ve 0 larının okunması için
 	else
 	{
 		*num = -1;
@@ -150,8 +134,6 @@ int	ft_parse_file(char *filename, t_cub *cub)
 	free(line);
 	if (!cub->starting_way)
 		return (err("No starting way\n"));
-	// bu fonksiyon tüm satır uzunluklarını aynı yapmak için eksik satır uzunluklarının
-	// sonunu ' ' karakter ile doldurur
 	ft_resize_map(cub);
 	ft_check_closed(cub);
 	return (1);

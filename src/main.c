@@ -6,21 +6,12 @@
 /*   By: seozkan <seozkan@42kocaeli.com.tr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 16:58:22 by seozkan           #+#    #+#             */
-/*   Updated: 2023/12/10 13:19:10 by seozkan          ###   ########.fr       */
+/*   Updated: 2023/12/27 13:48:44 by seozkan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <cub3d.h>
 
-// dir vektörü görüş yönünü yani nesnenin hangi yönde baktığını belirtir
-// plane vektörü dir vektörüne dik bir şekilde ayarlanır Raycasting'de 
-// bu vektör, ekranın solundan sağına doğru uzanır ve her bir ekran sütununu temsil eder.
-// Eğer dir vektörüne dikse ve plane vektörü de bu vektöre dikse, o zaman görüş
-// açısı 90 derecedir ve bu durumda duvarlar ekranda dik bir şekilde görünecektir. Eğer plane vektörü, dir vektörüne dik değilse, 
-// o zaman görüş açısı değişir ve eğik duvarlar oluşturulabilir.
-// plane vektörünün uzunluğu ne kadar büyük olursa, görüş açısı o kadar küçük olur 
-// ve duvarlar daha "uzak" gibi görünür. Tam tersine, plane vektörünün uzunluğu ne kadar küçük olursa, görüş açısı büyür ve duvarlar
-// daha "yakın" gibi görünür. Bu, ekran üzerinde görülen perspektifi kontrol etmek için kullanılır.
 void	ft_set_dir_2(t_cub *prog)
 {
 	if (prog->starting_way == 'W')
@@ -110,14 +101,15 @@ int	main(int argc, char **argv)
 	{
 		ft_free_cub(&prog);
 		free(prog.mlx);
-		exit (1);
+		exit(1);
 	}
 	prog.win = mlx_new_window(prog.mlx, WIDTH, HEIGHT, "cub3d");
 	mlx_hook(prog.win, 2, 1L << 0, ft_hooks_press, &prog);
 	mlx_hook(prog.win, 3, 1L << 1, ft_hooks_release, &prog);
 	mlx_hook(prog.win, 17, (1L << 17), ft_close, &prog);
 	prog.img.img = mlx_new_image(prog.mlx, WIDTH, HEIGHT);
-	prog.img.addr = mlx_get_data_addr(prog.img.img, &(prog.img.bits_per_pixel), &(prog.img.line_length), &(prog.img.endian));
+	prog.img.addr = mlx_get_data_addr(prog.img.img, &(prog.img.bits_per_pixel),
+			&(prog.img.line_length), &(prog.img.endian));
 	init_textures(&prog);
 	ft_set_dir(&prog);
 	mlx_loop_hook(prog.mlx, ft_start, &prog);

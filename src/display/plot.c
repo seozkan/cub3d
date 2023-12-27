@@ -6,7 +6,7 @@
 /*   By: seozkan <seozkan@42kocaeli.com.tr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 16:56:37 by seozkan           #+#    #+#             */
-/*   Updated: 2023/12/13 22:10:45 by seozkan          ###   ########.fr       */
+/*   Updated: 2023/12/27 13:44:02 by seozkan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,6 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 
 	if (x >= WIDTH || y >= HEIGHT || y < 0 || x < 0)
 		return ;
-	// ifadesi eklenir. Bu ifade, pikselin bulunduğu konumu belirler.
-	//  y * data->line_length ifadesi, belirli bir satırdaki pikselin başlangıcını temsil eder
-	//  ve x * (data->bits_per_pixel / 8) ifadesi, belirli bir sütundaki 
-	// pikselin başlangıcını temsil eder.
 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
 }
