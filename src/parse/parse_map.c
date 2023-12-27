@@ -6,7 +6,7 @@
 /*   By: seozkan <seozkan@42kocaeli.com.tr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 16:58:05 by seozkan           #+#    #+#             */
-/*   Updated: 2023/12/27 13:45:41 by seozkan          ###   ########.fr       */
+/*   Updated: 2023/12/27 14:23:59 by seozkan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,10 +83,7 @@ int	ft_check_closed(t_cub *cub)
 			if (cub->map[i][j] == ' ')
 			{
 				if (!ft_check_y_axis(cub, i, j) || !ft_check_x_axis(cub, i, j))
-				{
-					ft_printf("Map not closed : |%s|\n", cub->map[i]);
-					return (0);
-				}
+					return (err("Map not closed : |%s|\n"));
 			}
 			j++;
 		}
