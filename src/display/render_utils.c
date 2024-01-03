@@ -6,7 +6,7 @@
 /*   By: seozkan <seozkan@42kocaeli.com.tr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 16:56:53 by seozkan           #+#    #+#             */
-/*   Updated: 2023/12/27 13:56:25 by seozkan          ###   ########.fr       */
+/*   Updated: 2024/01/03 11:12:53 by seozkan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,9 @@ int	ft_dda(t_cub *prog, t_render *params)
 			params->side = 1;
 		}
 		if (params->map_y < 0 || (size_t)params->map_y >= prog->map_h)
-			return (0);
+			return (1);
 		if (params->map_x < 0 || (size_t)params->map_x >= prog->map_w)
-			return (0);
+			return (1);
 		if (prog->map[params->map_y][params->map_x] == '1')
 			hit = 1;
 	}
